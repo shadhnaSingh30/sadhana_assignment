@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q30</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="number" placeholder="range from 1 to 1000">
+    </form>
+    <button onClick="guess()">Submit</button>
+    <p id="display"></p>
+    <script>
+        function genRandom(max, min) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        correct = genRandom(1, 1000);
+        f = 0;
+        function guess() {
+
+            n = document.forms[0].elements[0].value;
+            if (n > correct)
+                st = n + " is Too High. Try Again";
+            else if (n < correct)
+                st = n + " is Too Low. Try Again";
+            else {
+                st = "Congratulations. You guessed the number! Your Score attempt is: " + f;
+
+            }
+            f++;
+            block = document.getElementById("display");
+            block.innerHTML = st;
+            document.forms[0].elements[0].value = "";
+
+        }
+    </script>
+</body>
+
+</html>
